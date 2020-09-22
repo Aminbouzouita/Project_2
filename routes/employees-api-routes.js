@@ -4,16 +4,16 @@ var db = require("../models");
 var Employee = require("../models/employees.js");
 
 module.exports = function (app) {
-  var query = {};
-  app.get("/api/allRoles", function(req, res) {
-    if (req.query.role_id) {
-      query = req.query.role_id;
-    }   
-   });
+  // var query = {};
+  // app.get("/api/allRoles", function(req, res) {
+  //   if (req.query.role_id) {
+  //     query = req.query.role_id;
+  //   }   
+  //  });
   app.get("/api/allEmployees", function (req, res) {
     db.Employee.findAll({
-      where: query,
-      include: [db.Role]
+      // where: query,
+      // include: [db.Role]
     }).then(function (results) {
       res.json(results);
       console.log(results);
@@ -29,12 +29,6 @@ module.exports = function (app) {
   //     res.json(dbAuthor);
   //   });
   // });
-
-
-
-
-
-
 
   app.put("/api/updateEmp/", function (req, res) {
     const { id, first_name, last_name, title, email } = req.body;
@@ -55,10 +49,6 @@ module.exports = function (app) {
       res.json(result);
     });
   });
-
-
-
-
   
   app.post("/api/newEmployees", function (req, res) {
     console.log("Employee Data:");

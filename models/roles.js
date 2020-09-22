@@ -14,18 +14,18 @@ module.exports = function (sequelize, DataTypes) {
         }
 
     });
-    Role.associate = function(models) {
+    // Role.associate = function(models) {
       
-    // //     Role.belongsTo(models.Department, {
-    // //         foreignKey: {
-    // //             allowNull: false
-    // //           }
-    // //     });
+    // // //     Role.belongsTo(models.Department, {
+    // // //         foreignKey: {
+    // // //             allowNull: false
+    // // //           }
+    // // //     });
     
-        Role.hasOne(models.Employee, {
-        foreignKey:"role_id", targetKey:`id`
-    });
-      };
+    //     Role.hasOne(models.Employee, {
+    //     foreignKey:"role_id", targetKey:`id`
+    // });
+    //   };
      
 
     return Role;

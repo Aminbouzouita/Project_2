@@ -33,11 +33,11 @@ module.exports = function (sequelize, DataTypes) {
         // }
     });
 
-    Employee.associate = function(models) {
+    // Employee.associate = function(models) {
       
-        Employee.belongsTo(models.Role, {
-          foreignKey:"role_id",  targetKey:`id`
-      });
-    }
+    //     Employee.belongsTo(models.Role, {
+    //       foreignKey:"role_id",  targetKey:`id`
+    //   });
+    // }
     return Employee;
 };

@@ -32,6 +32,22 @@ module.exports = function(app) {
     });
   });
 
+  app.put("/api/updateDep/", function (req, res) {
+    const { id, department_name} = req.body;
+
+    db.Department.update(
+      {
+        department_name: department_name,
+      },
+      {
+        where: {
+          id: req.body.id,
+        },
+      }
+    ).then(function (result) {
+      res.json(result);
+    });
+  });
  
   app.delete("/api/Departments/:id", function(req, res) {
     console.log("Department ID:");
