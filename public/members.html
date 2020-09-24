@@ -23,20 +23,15 @@
 
             <div class="pure-menu">
                 <ul class="pure-menu-list">
+                    <li class="pure-menu-item"><a href="members.html" class="pure-menu-link">Dashboard</a></li>
                     <li class="pure-menu-item"><a href="post.html" class="pure-menu-link">Post A Message</a></li>
-                  <li class="pure-menu-item"><a href="addEmployees.html" class="pure-menu-link">Add Employee</a></li>
-                  <li class="pure-menu-item"><a href="addRoles.html" class="pure-menu-link">Add Role</a></li>
-                  <li class="pure-menu-item"><a href="addDepartments.html" class="pure-menu-link">Add Department</a></li>
-                  <li class="pure-menu-item"><a href="allEmployees.html" class="pure-menu-link">View All Employees</a></li>
-                  <li class="pure-menu-item"><a href="allDepartment.html" class="pure-menu-link">View All Department</a></li>
-                  <li class="pure-menu-item"><a href="allRoles.html" class="pure-menu-link">View All Roles</a></li>
-                   <li class="pure-menu-item"><a href="view_by_man" class="pure-menu-link">View By Manager</a></li>
-                    <li class="pure-menu-item"><a href="view_by_dep" class="pure-menu-link">View By Department</a></li>
-                                
-                    <!-- <li class="pure-menu-heading">Labels</li>
-                    <li class="pure-menu-item"><a href="#" class="pure-menu-link"><span class="email-label-personal"></span>Personal</a></li>
-                    <li class="pure-menu-item"><a href="#" class="pure-menu-link"><span class="email-label-work"></span>Work</a></li>
-                    <li class="pure-menu-item"><a href="#" class="pure-menu-link"><span class="email-label-travel"></span>Travel</a></li> -->
+                    <li class="pure-menu-item"><a href="addEmployees.html" class="pure-menu-link">Add Employee</a></li>
+                    <li class="pure-menu-item"><a href="addRoles.html" class="pure-menu-link">Add Role</a></li>
+                    <li class="pure-menu-item"><a href="addDepartments.html" class="pure-menu-link">Add Department</a></li>
+                    <li class="pure-menu-item"><a href="allEmployees.html" class="pure-menu-link">View All Employees</a></li>
+                    <li class="pure-menu-item"><a href="allDepartment.html" class="pure-menu-link">View All Department</a></li>
+                    <li class="pure-menu-item"><a href="allRoles.html" class="pure-menu-link">View All Roles</a></li>
+                     <li class="pure-menu-item"><a href="searchEmployees.html" class="pure-menu-link">Search</a></li>
                 </ul>
             </div>
         </div>
@@ -63,17 +58,15 @@
             <div class="email-content-header pure-g">
                 <div class="pure-u-1-2">
                   <h2>Welcome <span class="member-name"></span></h2>
-                    <!-- <p class="email-content-subtitle">
-                        From <a>Tilo Mitra</a> at <span>3:56pm, April 3, 2012</span>
-                    </p>
+                   <p id="currenttime"></p>
                 </div>
 
                 <div class="email-content-controls pure-u-1-2">
-                    <button class="secondary-button pure-button">Reply</button>
-                    <button class="secondary-button pure-button">Forward</button>
-                    <button class="secondary-button pure-button">Move to</button>
+                    <button class="secondary-button pure-button" id="start">Start</button>
+                    <!-- <button class="secondary-button pure-button" id="pause">Pause</button> -->
+                    <!-- <button class="secondary-button pure-button" id="stop">Stop</button> -->
                 </div>
-            </div> -->
+            </div>
 
             <div class="body">
                
@@ -87,6 +80,7 @@
 </body>
 
 <script src="https://code.jquery.com/jquery.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 <script type="text/javascript" src="js/members.js"></script>
 </html>

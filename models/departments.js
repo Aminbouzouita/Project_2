@@ -5,10 +5,11 @@ module.exports = function (sequelize, DataTypes) {
             allowNull: false
         }
     });
-    // Department.associate = function(models) {
-    //     Department.hasMany(models.Role, {
-    //       onDelete: "cascade"
-    //     });
-    //   };
+    Department.associate = function (models) {
+        Department.hasOne(models.Role, {
+            foreignKey: "department_id", targetKey: `id`
+        });
+    };
+
     return Department;
 };

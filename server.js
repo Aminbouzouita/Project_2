@@ -30,6 +30,7 @@ require("./routes/api-routes.js")(app);
 require("./routes/employees-api-routes")(app);
 require("./routes/roles-api-routes")(app);
 require("./routes/departments-api-routes")(app);
+require("./routes/timer-api-routes")(app);
 // Syncing our database and logging a message to the user upon success
 db.sequelize.sync().then(function() {
   app.listen(PORT, function() {

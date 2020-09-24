@@ -3,44 +3,49 @@ const { response } = require("express");
 var db = require("../models");
 var Role = require("../models/roles.js");
 module.exports = function (app) {
+ 
   app.get("/api/allRoles", function (req, res) {
-    db.Role.findAll({}).then(function (results) {
-      res.json(results);
-      console.log(results);
-    });
-  });
-
-
-  app.get("/api/oneRoles", function (req, res) {
-    db.Role.findOne({
-      where: {
-        id: req.body.id
-      }
+    db.Role.findAll({
+      where: req.params.id,
+      include: [db.Department],
     }).then(function (results) {
       res.json(results);
       console.log(results);
     });
   });
 
+  // app.get("/api/oneRoles", function (req, res) {
+  //   db.Role.findOne({
+  //     where: {
+  //       id: req.body.id
+  //     }
+  //   }).then(function (results) {
+  //     res.json(results);
+  //     console.log(results);
+  //   });
+  // });
 
-  app.put("/api/Roles", function (req, res) {
-    db.Role.update({
-      title: req.body.title,
-      salary: req.body.salary,
-      department_id: req.body.department_id
-    }, {
-      where: {
-        id: req.body.id
+  app.put("/api/updateRole/", function (req, res) {
+    const { id, title, salary, department_id} = req.body;
+
+    db.Role.update(
+      {
+        title:title,
+        salary:salary,
+        department_id: department_id,
+      },
+      {
+        where: {
+          id: req.body.id,
+        },
       }
-    }).then(function (results) {
-      res.json(results);
+    ).then(function (result) {
+      res.json(result);
     });
   });
 
 
   app.post("/api/newRoles", function (req, res) {
-    console.log("Role Data:");
-    console.log(req.body);
     db.Role.create({
       title: req.body.title,
       salary: req.body.salary,

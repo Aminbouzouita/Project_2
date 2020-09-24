@@ -4,16 +4,10 @@ var db = require("../models");
 var Employee = require("../models/employees.js");
 
 module.exports = function (app) {
-  // var query = {};
-  // app.get("/api/allRoles", function(req, res) {
-  //   if (req.query.role_id) {
-  //     query = req.query.role_id;
-  //   }   
-  //  });
   app.get("/api/allEmployees", function (req, res) {
     db.Employee.findAll({
-      // where: query,
-      // include: [db.Role]
+      where: req.params.id,
+      include: [db.Role]
     }).then(function (results) {
       res.json(results);
       console.log(results);
@@ -31,14 +25,23 @@ module.exports = function (app) {
   // });
 
   app.put("/api/updateEmp/", function (req, res) {
-    const { id, first_name, last_name, title, email } = req.body;
+    const { id, first_name, last_name, title, hourly_paid, email, street, city, zip_code, country, is_manager, manager_id, is_admin, is_active} = req.body;
 
     db.Employee.update(
       {
         first_name: first_name,
         last_name: last_name,
         role_id: title,
+        hourly_paid: hourly_paid,
         email: email,
+        street: street,
+        city: city,
+        zip_code: zip_code,
+        country: country,
+        is_manager: is_manager,
+        manager_id: manager_id,
+        is_admin: is_admin,
+        is_active: is_active,
       },
       {
         where: {
@@ -50,6 +53,7 @@ module.exports = function (app) {
     });
   });
   
+  
   app.post("/api/newEmployees", function (req, res) {
     console.log("Employee Data:");
     console.log(req.body);
@@ -57,7 +61,16 @@ module.exports = function (app) {
       first_name: req.body.first_name,
       last_name: req.body.last_name,
       role_id: req.body.role_id,
+      hourly_paid:req.body.hourly_paid,
       email: req.body.email,
+      street: req.body.street,
+      city: req.body.city,
+      zip_code: req.body.zip_code,
+      country: req.body.country,
+      is_manager: req.body.is_manager,
+      manager_id: req.body.manager_id,
+      is_admin: req.body.is_admin,
+      is_active: req.body.is_active,
     }).then(function (results) {
       res.json(results);
 

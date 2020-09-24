@@ -8,25 +8,22 @@ module.exports = function (sequelize, DataTypes) {
             type: DataTypes.STRING,
             allowNull: false
         },
-        department_id:{
+        department_id: {
             type: DataTypes.INTEGER,
             allowNull: false
         }
 
     });
-    // Role.associate = function(models) {
-      
-    // // //     Role.belongsTo(models.Department, {
-    // // //         foreignKey: {
-    // // //             allowNull: false
-    // // //           }
-    // // //     });
-    
-    //     Role.hasOne(models.Employee, {
-    //     foreignKey:"role_id", targetKey:`id`
-    // });
-    //   };
-     
+    Role.associate = function (models) {
+        Role.hasOne(models.Employee, {
+            foreignKey: "role_id", targetKey: `id`
+        });
+        Role.belongsTo(models.Department, {
+            foreignKey: "department_id", targetKey: `id`
+          });
+        
+    };
+
 
     return Role;
 };

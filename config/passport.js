@@ -16,16 +16,16 @@ passport.use(new LocalStrategy(
       }
     }).then(function(dbUser) {
       // If there's no user with the given email
-       db.Employee.findOne({
-      where: {
-        email: email
-      }
-    }).then(function(dbemployees) {
-      if (!dbemployees) {
-        return done(null, false, {
-          message: "You do not exist in this Databse."
-        });
-      }
+    //    db.Employee.findOne({
+    //   where: {
+    //     email: email
+    //   }
+    // }).then(function(dbemployees) {
+    //   if (!dbemployees) {
+    //     return done(null, false, {
+    //       message: "You do not exist in this Databse."
+    //     });
+    //   }
       if (!dbUser) {
         return done(null, false, {
           message: "Incorrect email."
@@ -39,7 +39,7 @@ passport.use(new LocalStrategy(
       }
       // If none of the above, return the user
       return done(null, dbUser);
-    }); 
+    // }); 
   });
   }
 ));
