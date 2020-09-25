@@ -2,25 +2,16 @@ const { response } = require("express");
 var db = require("../models");
 var Department = require("../models/departments.js");
 module.exports = function(app) {
+
+//                Search for all
     app.get("/api/allDepartments", function(req, res) {
     db.Department.findAll({}).then(function(results) {
       res.json(results);
       console.log(results);
     });
   });
-  app.put("/api/Departments", function(req, res) {
-    db.Department.update({
-      department_name: req.body.department_name
-    }, {
-      where: {
-        id: req.body.id
-      }
-    }).then(function(results) {
-      res.json(results);
-    });
-  });
 
-
+//                 Create
   app.post("/api/newDepartments", function(req, res) {
     console.log("department Data:");
     console.log(req.body);
@@ -32,6 +23,7 @@ module.exports = function(app) {
     });
   });
 
+//                 Update
   app.put("/api/updateDep/", function (req, res) {
     const { id, department_name} = req.body;
 
@@ -49,6 +41,7 @@ module.exports = function(app) {
     });
   });
  
+  //                Delete
   app.delete("/api/Departments/:id", function(req, res) {
     console.log("Department ID:");
     console.log(req.params.id);

@@ -2,6 +2,7 @@ const { response } = require("express");
 var db = require("../models");
 var Timer = require("../models/employeesTimer.js");
 module.exports = function (app) {
+//               Search for all
     app.get("/api/allTimer", function (req, res) {
         db.Timer.findAll({}).then(function (results) {
             res.json(results);
@@ -9,6 +10,7 @@ module.exports = function (app) {
         });
     });
 
+//                  Create
     app.post("/api/newTimer", function (req, res) {
         db.Timer.create({
             employee_id: req.body.employee_id,
