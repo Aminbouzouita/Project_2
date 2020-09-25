@@ -1,19 +1,36 @@
-$(document).ready(function () {$.get("/api/books/long", function(data) {
-  for (var i = 0; i < data.length; i++) {
-    // Create a parent div to hold book data
-    var wellSection = $("<div>");
-    // Add a class to this div: 'well'
-    wellSection.addClass("well");
-    // Add an id to the well to mark which well it is
-    wellSection.attr("id", "book-well-" + i);
-    // Append the well to the well section
-    $("#well-section").append(wellSection);
+$(document).ready(function () {
+  $.get("/api/user_data").then(function (data) {
+    var employeeEmail = data.email;
+    $.get("/api/allEmployees", function (res) {
+      var sender_id;
+      for (var i = 0; i < res.length; i++) {
+        if (res[i].email === employeeEmail) {
+          sender_id = res[i].id;
+        }
+      }
+  
+      // for (var i = 0; i < res.length; i++) {
+      //   if (res[i].is_manager = true) {
+        
+      //   }
+      // }
+var choices = $("#option").val().trim();
+console.log(choices);
 
-    // Now  we add our book data to the well we just placed on the page
-    $("#book-well-" + i).append("<h2>" + (i + 1) + ". " + data[i].title + "</h2>");
-    $("#book-well-" + i).append("<h3>Author: " + data[i].author + "</h4>");
-    $("#book-well-" + i).append("<h3>Genre: " + data[i].genre + "</h4>");
-    $("#book-well-" + i).append("<h3>Pages: " + data[i].pages + "</h4>");
-  }
-});
+      $("#add-btn").on("click", function (event) {
+        event.preventDefault();
+        var newPost = {
+          sender_id: sender_id,
+          receiver_id: ("#receiver").val().trim(),
+          Post: $("#post").val().trim()
+        };
+        $.post("/api/newPost", newPost)
+          .then(function (data) {
+
+          });
+        $("#Post").val("");
+
+      });
+    });
+  });
 });

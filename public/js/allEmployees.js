@@ -69,8 +69,8 @@ $(document).ready(function () {
         $(`#employee` + i).append(`Zip Code:<input id=zip_code` + i + ` value= ` + data[i].zip_code + `></br>`);
         $(`#employee` + i).append(`Country:<input id=country` + i + ` value= ` + data[i].country + `></br>`);
         $(`#employee` + i).append(`Manager:<input id=manager_id` + i + ` value= ` + data[i].manager_id + `></br>`);
-        $(`#employee` + i).append(`Is Manager:<select id=is_manager` + i + `><option value=` + data[i].is_manager + ` selected >` + data[i].is_manager + `</option>` + getmanagersecondOption(data) + `</select></br>`);
-        $(`#employee` + i).append(`Is Admin:<select id=is_admin` + i + `><option value=` + data[i].is_admin + ` selected >` + data[i].is_admin + `</option>` + getadminsecondOption(data) + `</select></br>`);
+        $(`#employee` + i).append(`Is Manager:<select id=is_manager` + i + `><option value=` + data[i].is_manager + ` >` + data[i].is_manager + `</option>` + getmanagersecondOption(data) + `</select></br>`);
+        $(`#employee` + i).append(`Is Admin:<select id=is_admin` + i + `><option value=` + data[i].is_admin + ` >` + data[i].is_admin + `</option>` + getadminsecondOption(data) + `</select></br>`);
         $(`#employee` + i).append(`<button class=delete_btn id=${i}>Delete</button>`);
         $(`#employee` + i).append(`<button  class=edit_btn id=${i}>Edit</button></br></br>`);
       }

@@ -1,14 +1,16 @@
 $(document).ready(function () {
   $.get("/api/allRoles", function (res) {
-    let roles = [];
     for (var i = 0; i < res.length; i++) {
-      roles.push({ name: `${res[i].title}`, value: `${res[i].id}` });
+      $("#role_choices").append(`<option value="` + res[i].id + `">` + res[i].title + `</option></br>`);
     }
-    for (var i = 0; i < roles.length; i++) {
-      $("#role_choices").append(`<option value="` + roles[i].value + `">` + roles[i].name + `</option></br>`);
-    } 
-    console.log(roles);
+    $.get("/api/allEmployees", function (response) {
+    for (var i = 0; i < response.length; i++) {
+      if (response[i].is_manager = true) {
+        $("#manager_id").append(`<option value="` + 1 + `">` + response[i].first_name + ` ` + response[i].last_name + `</option></br>`);
+      }
+    }
   });
+});
     $("#add-btn").on("click", function (event) {
       event.preventDefault();
       var newEmployee = {
