@@ -3,7 +3,7 @@ const { response } = require("express");
 var db = require("../models");
 var Role = require("../models/roles.js");
 module.exports = function (app) {
- 
+ //        Search for all
   app.get("/api/allRoles", function (req, res) {
     db.Role.findAll({
       where: req.params.id,
@@ -14,17 +14,30 @@ module.exports = function (app) {
     });
   });
 
-  // app.get("/api/oneRoles", function (req, res) {
-  //   db.Role.findOne({
-  //     where: {
-  //       id: req.body.id
-  //     }
-  //   }).then(function (results) {
-  //     res.json(results);
-  //     console.log(results);
-  //   });
-  // });
+   //            Search using id 
+app.get("/api/searchrole/id", function (req, res) {
+  db.Role.findOne({
+    where: {
+      id: req.query.id,
+    }
+  }).then(function (results) {
+    res.json(results);
+    return results;
+  });
+});
 
+ //             Search using title 
+ app.get("/api/searchrole/title", function (req, res) {
+  db.Role.findOne({
+    where: {
+      title: req.query.title,
+    },
+  }).then(function (results) {
+    res.json(results);
+    return results;
+  });
+});
+//                    Update
   app.put("/api/updateRole/", function (req, res) {
     const { id, title, salary, department_id} = req.body;
 
@@ -44,7 +57,7 @@ module.exports = function (app) {
     });
   });
 
-
+//               Create
   app.post("/api/newRoles", function (req, res) {
     db.Role.create({
       title: req.body.title,
@@ -55,7 +68,7 @@ module.exports = function (app) {
 
     });
   });
-
+//                Delete
   app.delete("/api/Roles/:id", function (req, res) {
     console.log("Role ID:");
     console.log(req.params.id);

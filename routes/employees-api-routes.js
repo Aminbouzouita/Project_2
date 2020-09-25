@@ -4,6 +4,7 @@ var db = require("../models");
 var Employee = require("../models/employees.js");
 
 module.exports = function (app) {
+  //           Search for all
   app.get("/api/allEmployees", function (req, res) {
     db.Employee.findAll({
       where: req.params.id,
@@ -14,42 +15,133 @@ module.exports = function (app) {
     });
   });
 
+//            Search using id 
+app.get("/api/searchemployee/id", function (req, res) {
+  db.Employee.findOne({
+    where: {
+      id: req.query.id,
+    },include: [db.Role],
+  }).then(function (results) {
+    res.json(results);
+    return results;
+  });
+});
+
+//          Search using first name
   app.get("/api/searchemployee/?", function (req, res) {
     var first = req.query.first_name;
     console.log("employee one search: primero", first);
     db.Employee.findOne({
       where: {
         first_name: first,
-      },
+      },include: [db.Role],
     }).then(function (results) {
       res.json(results);
       return results;
     });
   });
 
+//             Search using last name
   app.get("/api/searchemployeelast/?", function (req, res) {
     var last = req.query.last_name;
     console.log("employee one search: primero", last);
     db.Employee.findOne({
       where: {
         last_name: last,
-      },
+      },include: [db.Role],
     }).then(function (results) {
       res.json(results);
       return results;
     });
   });
 
-  // app.get("/api/Employees/:id", function(req, res) {
-  //   db.Employee.findOne({
-  //     where: {
-  //       id: req.params.id
-  //     }
-  //   }).then(function(dbAuthor) {
-  //     res.json(dbAuthor);
-  //   });
-  // });
+  //    Search using first name and last name
+  app.get("/api/searchemployee/fullname", function (req, res) {
+    db.Employee.findOne({
+      where: {
+        first_name: req.query.first_name, 
+        // last_name: req.query.last_name,
+      },include: [db.Role],
+    }).then(function (results) {
+      res.json(results);
+      return results;
+    });
+  });
 
+//                 Search using email 
+  app.get("/api/searchemployee/email", function (req, res) {
+    db.Employee.findOne({
+      where: {
+        email: req.query.email,
+      },include: [db.Role],
+    }).then(function (results) {
+      res.json(results);
+      return results;
+    });
+  });
+
+  //             Search using manager_id 
+  app.get("/api/searchemployee/manager_id", function (req, res) {
+    db.Employee.findOne({
+      where: {
+        manager_id: req.query.manager_id,
+      },include: [db.Role],
+    }).then(function (results) {
+      res.json(results);
+      return results;
+    });
+  });
+
+  //             Search using department_id 
+  app.get("/api/searchemployee/department_id", function (req, res) {
+    db.Employee.findOne({
+      where: {
+        department_id: req.query.department_id,
+      },include: [db.Role],
+    }).then(function (results) {
+      res.json(results);
+      return results;
+    });
+  });
+
+  //              Search using is_manager 
+  app.get("/api/searchemployee/is_manager", function (req, res) {
+    db.Employee.findOne({
+      where: {
+        is_manager: true,
+      },include: [db.Role],
+    }).then(function (results) {
+      res.json(results);
+      return results;
+    });
+  });
+
+  //               Search using is_active 
+  app.get("/api/searchemployee/is_active", function (req, res) {
+    db.Employee.findOne({
+      where: {
+        is_active: true,
+      },include: [db.Role],
+    }).then(function (results) {
+      res.json(results);
+      return results;
+    });
+  });
+
+    //               Search using is_admin 
+  app.get("/api/searchemployee/is_admin", function (req, res) {
+    db.Employee.findOne({
+      where: {
+        is_admin: true,
+      },include: [db.Role],
+    }).then(function (results) {
+      res.json(results);
+      return results;
+    });
+  });
+
+
+//                    Update
   app.put("/api/updateEmp/", function (req, res) {
     const {
       id,
@@ -94,6 +186,7 @@ module.exports = function (app) {
     });
   });
 
+//                     Create
   app.post("/api/newEmployees", function (req, res) {
     console.log("Employee Data:");
     console.log(req.body);
@@ -116,6 +209,7 @@ module.exports = function (app) {
     });
   });
 
+  //                  Delete
   app.delete("/api/Employees/:id", function (req, res) {
     console.log("Employee ID:");
     console.log(req.params.id);

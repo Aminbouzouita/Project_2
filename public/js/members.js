@@ -3,6 +3,7 @@ $(document).ready(function () {
 
   $.get("/api/user_data").then(function (data) {
     var employeeEmail = data.email;
+    
     $.get("/api/allEmployees", function (res) {
       var employee_id;
       var employeeName;

@@ -1,6 +1,5 @@
 $(document).ready(function () {
   $.get("/api/allRoles", function (data) {
-    console.log(data);
     for (var i = 0; i < data.length; i++) {
       var roles = $("<div>").addClass("roles").attr("id", "role" + i);;
       $("#roles-section").append(roles);
