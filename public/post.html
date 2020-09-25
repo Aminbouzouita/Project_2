@@ -60,17 +60,30 @@
         <div class="email-content-header pure-g">
           <div class="pure-u-1-2">
             <h2>Welcome <span class="member-name"></span></h2>
-            <!-- <p class="email-content-subtitle">
+            <p class="email-content-subtitle">
                                   From <a>Tilo Mitra</a> at <span>3:56pm, April 3, 2012</span>
                               </p>
                           </div>
-          
-                          <div class="email-content-controls pure-u-1-2">
-                              <button class="secondary-button pure-button">Reply</button>
-                              <button class="secondary-button pure-button">Forward</button>
-                              <button class="secondary-button pure-button">Move to</button>
+                          <div class="pure-u-1-5 checkbox">
+                            <label for="oneway" class="pure-checkbox">
+                            <input type="radio" class="pure-u-2-4" name="send_op" value="bydepartment" id="send_op" >To Department</label>
                           </div>
-                      </div> -->
+                          <div class="pure-u-1-5">
+                            <label for="roundtrip" class="pure-checkbox">
+                            <input type="radio" class="pure-u-2-4" name="send_p" value="byperson" id="roundtrip" checked>To individual</label> 
+                          </div>
+                          <div class="pure-u-1-5">
+                            <label for="roundtrip" class="pure-checkbox">
+                            <input type="radio" class="pure-u-2-4" name="send_p" value="byperson" id="roundtrip" checked>To Everyone</label> 
+                          </div>
+                          <div class="email-content-controls pure-u-1-2">
+                            Sent to <input type="text" id="receiver"/>
+                            Message <input type="text" id="post"/>
+                              <button class="secondary-button pure-button" id="search">Send</button>
+                              <!-- <button class="secondary-button pure-button">Forward</button>
+                              <button class="secondary-button pure-button">Move to</button>
+                          </div> -->
+                      </div>
 
             <div class="body" id="well-section">
 
@@ -85,6 +98,6 @@
 
 <script src="https://code.jquery.com/jquery.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-<script type="text/javascript" src="js/allEmployees.js"></script>
+<script type="text/javascript" src="js/post.js"></script>
 
 </html>
