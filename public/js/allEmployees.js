@@ -1,26 +1,24 @@
 $(document).ready(function () {
   $.get("/api/allRoles", function (res) {
-    var roles = [];
-    for (var i = 0; i < res.length; i++) {
-      roles.push({ name: `${res[i].title}`, value: `${res[i].id}` });
-    }
-    function getRoles(roles) {
-      var displayrole = [];
-      var role = [];
-      for (var i = 0; i < roles.length; i++) {
-        displayrole = `<option value=${roles[i].value}>${roles[i].name}</option>`
-        role.push(displayrole);
-      }
-      return role;
-    }
-    // console.log(getRoles(roles));
     $.get("/api/allEmployees", function (data) {
-      // console.log(data);
+      var roles = [];
+      for (var i = 0; i < res.length; i++) {
+        roles.push({ name: `${res[i].title}`, value: `${res[i].id}` });
+      }
+      function getRoles(roles) {
+        var displayrole = [];
+        var role = [];
+        for (var i = 0; i < roles.length; i++) {
+          displayrole = `<option value=${roles[i].value}>${roles[i].name}</option>`
+          role.push(displayrole);
+        }
+        return role;
+      }
       function getactivesecondOption(data) {
         var option;
         for (var i = 0; i < data.length; i++) {
           if (data[i].is_active = true) {
-            option =`<option value=false >false</option>`;
+            option = `<option value=false >false</option>`;
           }
           else {
             option = `<option value=true >true</option>`;
@@ -57,10 +55,10 @@ $(document).ready(function () {
       for (var i = 0; i < data.length; i++) {
         var employees = $("<div>").addClass("employees").attr("id", "employee" + i);
         $("#employees-section").append(employees);
-        $(`#employee` + i).append(`Active:<select id=is_active` + i + `><option selected>` + data[i].is_active + `</option>` + getactivesecondOption(data) + `</select></br>`);
+        $(`#employee` + i).append(`Active:<select id=is_active` + i + `><option>` + data[i].is_active + `</option>` + getactivesecondOption(data) + `</select></br>`);
         $("#employee" + i).append(`First Name:<input id=first_name` + i + ` value=` + data[i].first_name + `></br>`);
         $(`#employee` + i).append(`Last Name:<input id=last_name` + i + ` value= ` + data[i].last_name + `></br>`);
-        $(`#employee` + i).append(`Job Title:<select id=role_id` + i + `><option value=` + data[i].role_id + ` selected>` + data[i].Role.title + `</option>` + getRoles(roles) + `</select></br>`);
+        $(`#employee` + i).append(`Job Title:<select id=role_id` + i + `><option value=` + data[i].role_id + `>` + data[i].Role.title + `</option>` + getRoles(roles) + `</select></br>`);
         $(`#employee` + i).append(`Hourly Paid Amount:<input id=hourly_paid` + i + ` value= ` + data[i].hourly_paid + `></br>`);
         $(`#employee` + i).append(`Email Adress:<input id=email` + i + ` value= ` + data[i].email + `></br>`);
         $(`#employee` + i).append(`Salary:<input id=salary` + i + ` value= ` + data[i].Role.salary + `></br>`);
@@ -69,8 +67,8 @@ $(document).ready(function () {
         $(`#employee` + i).append(`Zip Code:<input id=zip_code` + i + ` value= ` + data[i].zip_code + `></br>`);
         $(`#employee` + i).append(`Country:<input id=country` + i + ` value= ` + data[i].country + `></br>`);
         $(`#employee` + i).append(`Manager:<input id=manager_id` + i + ` value= ` + data[i].manager_id + `></br>`);
-        $(`#employee` + i).append(`Is Manager:<select id=is_manager` + i + `><option value=` + data[i].is_manager + ` >` + data[i].is_manager + `</option>` + getmanagersecondOption(data) + `</select></br>`);
-        $(`#employee` + i).append(`Is Admin:<select id=is_admin` + i + `><option value=` + data[i].is_admin + ` >` + data[i].is_admin + `</option>` + getadminsecondOption(data) + `</select></br>`);
+        $(`#employee` + i).append(`Is Manager:<select id=is_manager` + i + `><option value=` + data[i].is_manager + `>` + data[i].is_manager + `</option>` + getmanagersecondOption(data) + `</select></br>`);
+        $(`#employee` + i).append(`Is Admin:<select id=is_admin` + i + `><option value=` + data[i].is_admin + `>` + data[i].is_admin + `</option>` + getadminsecondOption(data) + `</select></br>`);
         $(`#employee` + i).append(`<button class=delete_btn id=${i}>Delete</button>`);
         $(`#employee` + i).append(`<button  class=edit_btn id=${i}>Edit</button></br></br>`);
       }
@@ -89,7 +87,8 @@ $(document).ready(function () {
       });
 
       $(".edit_btn").on("click", function (event) {
-        event.stopPropagation();
+        event.preventDefault();
+
         var id = this.id;
         var first = $("#first_name" + id).val().trim();
         var last = $("#last_name" + id).val().trim();
@@ -120,7 +119,7 @@ $(document).ready(function () {
           is_admin: is_admin,
           is_active: is_active,
         };
-        console.log(namep);
+        // console.log(namep);
         $.ajax({
           method: "PUT",
           url: "/api/updateEmp/",

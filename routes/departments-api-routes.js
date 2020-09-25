@@ -2,8 +2,7 @@ const { response } = require("express");
 var db = require("../models");
 var Department = require("../models/departments.js");
 module.exports = function(app) {
-
-//                Search for all
+  //          Search for all
     app.get("/api/allDepartments", function(req, res) {
     db.Department.findAll({}).then(function(results) {
       res.json(results);
@@ -11,7 +10,31 @@ module.exports = function(app) {
     });
   });
 
-//                 Create
+  //            Search using id 
+app.get("/api/searchdepartment/id", function (req, res) {
+  db.Department.findOne({
+    where: {
+      id: req.query.id,
+    }
+  }).then(function (results) {
+    res.json(results);
+    return results;
+  });
+});
+
+ //            Search using department_name 
+ app.get("/api/searchdepartment/id", function (req, res) {
+  db.Department.findOne({
+    where: {
+      department_name: req.query.id,
+    }
+  }).then(function (results) {
+    res.json(results);
+    return results;
+  });
+});
+
+//                Create
   app.post("/api/newDepartments", function(req, res) {
     console.log("department Data:");
     console.log(req.body);
@@ -22,8 +45,7 @@ module.exports = function(app) {
      
     });
   });
-
-//                 Update
+//                Update
   app.put("/api/updateDep/", function (req, res) {
     const { id, department_name} = req.body;
 
@@ -40,8 +62,7 @@ module.exports = function(app) {
       res.json(result);
     });
   });
- 
-  //                Delete
+ //                Delete
   app.delete("/api/Departments/:id", function(req, res) {
     console.log("Department ID:");
     console.log(req.params.id);

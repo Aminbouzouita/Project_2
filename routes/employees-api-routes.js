@@ -4,7 +4,7 @@ var db = require("../models");
 var Employee = require("../models/employees.js");
 
 module.exports = function (app) {
-  //          Search for all
+  //           Search for all
   app.get("/api/allEmployees", function (req, res) {
     db.Employee.findAll({
       where: req.params.id,
@@ -14,7 +14,19 @@ module.exports = function (app) {
     });
   });
 
-  //             Search using first name
+//            Search using id 
+app.get("/api/searchemployee/id", function (req, res) {
+  db.Employee.findOne({
+    where: {
+      id: req.query.id,
+    },include: [db.Role],
+  }).then(function (results) {
+    res.json(results);
+    return results;
+  });
+});
+
+//          Search using first name
   app.get("/api/searchemployee/?", function (req, res) {
     var first = req.query.first_name;
     console.log("employee one search: primero", first);
@@ -28,7 +40,7 @@ module.exports = function (app) {
     });
   });
 
-  //               Search using last name
+//             Search using last name
   app.get("/api/searchemployeelast/?", function (req, res) {
     var last = req.query.last_name;
     console.log("employee one search: primero", last);
@@ -148,7 +160,7 @@ return results;
     });
   });
 
-  //               Create
+//                     Create
   app.post("/api/newEmployees", function (req, res) {
     console.log("Employee Data:");
     console.log(req.body);
@@ -171,7 +183,7 @@ return results;
     });
   });
 
-  //                 Delete
+  //                  Delete
   app.delete("/api/Employees/:id", function (req, res) {
     console.log("Employee ID:");
     console.log(req.params.id);
