@@ -1,40 +1,56 @@
 $(document).ready(function () {
-  $.get("/api/user_data").then(function (data) {
-    var employeeEmail = { email: data.email };
-    console.log(employeeEmail);
-    $.get("/api/searchemployee/email", employeeEmail).then(function (res) {
-      var sender_id = res.id;
-      var sender_firstName = res.first_name;
-      var sender_lastName = res.last_name;
-      console.log(sender_id);
-      $("#search").on("click", function (event) {
-        var receiver = $("#receiver").val().trim();
-        var spaceindex = receiver.indexOf(" ");
-         if(spaceindex != null){
-        var length = receiver.length;
-        var first_name = receiver.slice(0, spaceindex);
-        var last_name = receiver.slice(spaceindex + 1, length);
-        var receiver_id;
-        var newreceiver = {
-          first_name: first_name,
-          last_name: last_name
-        };
-         $.get("/api/searchemployee/fullname", newreceiver).then( function (response) {
-         receiver_id = response.id;
-         console.log(receiver_id);
-         });
-         }
-         else if(receiver_id = null ){
-        $.get("/api/searchemployee/?", { first: receiver }).then(function (response) {
-          console.log(response);
-        });
-         }
-         $.get("/api/searchemployeelast/?",{ last: receiver } ).then(function (res) {
-             console.log(res)
-         });
-      
 
+      $.get("/api/userPosts/", userPost).then(function (data) {
+        //console.log("data email");
+        //console.log(data);
+        for (var i = 0; i < data.length; i++) {
+          var employees = $("<div>")
+            .addClass("messagePost")
+            .attr("id", "employee" + i);
+          $(".pure-u-3-4").append(employees);
+          $(`#employee` + i).append(
+            `<p>Sender ID: ` + data[i].sender_id + `</p>`
+          );
+          $(`#employee` + i).append(`<p>` + data[i].post + `</p></br>`);
+        }
+        //finish
       });
+
+      //finish
+      for (var i = 0; i < response.length; i++) {
+        if (response[i].id != id) {
+          //console.log(response[i].id);
+          $("#role_choices").append(
+            `<option value="` +
+              response[i].id +
+              `">` +
+              response[i].first_name +
+              ` ` +
+              response[i].last_name +
+              `</option></br>`
+          );
+        } else {
+          $(".member-name").text(response[i].first_name);
+          $(".member-id").text(id);
+        }
+      }
     });
+  });
+  $("#add-btn").on("click", function (event) {
+    event.preventDefault();
+    //console.log("rendering  html)");
+    var newPost = {
+      sender_id: $(".member-id").text(),
+      receiver_id: $("#role_choices").val(),
+      post: $(".message").val(),
+    };
+    //console.log(newPost);
+    $.post("/api/newPost", newPost).then(function (data) {
+      console.log("success adding post");
+      //console.log("data", data);
+    });
+    $(".member-id").val("");
+    $("#role_choices").val("");
+    $(".message").val("");
   });
 });
