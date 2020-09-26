@@ -1,4 +1,20 @@
 $(document).ready(function () {
+  $.get("/api/allEmployees", function (response) {
+    $.get("/api/user_data").then(function (data) {
+      $(".member-email").text(data.email);
+      var email = $(".member-email").text();
+      var id;
+      //console.log("here", email, response);
+      for (var i = 0; i < response.length; i++) {
+        if (response[i].email === email) {
+          //console.log("found it", response[i].id);
+          id = response[i].id;
+        }
+      }
+      //start
+
+      var userPost = { id: id };
+      //console.log(userPost);
 
       $.get("/api/userPosts/", userPost).then(function (data) {
         //console.log("data email");
