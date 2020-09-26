@@ -4,6 +4,9 @@ var db = require("../models");
 var Employee = require("../models/post.js");
 var Post = require("../models/post.js");
 
+//Updating Post Api Routes
+// This is the best code for now
+
 module.exports = function (app) {
   app.get("/api/allEmployees", function (req, res) {
     db.Employee.findAll({
