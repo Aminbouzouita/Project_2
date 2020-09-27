@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <title>Passport Authentication</title>
+    <title>Dashboard</title>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link href="stylesheets/style.css" rel="stylesheet">
@@ -11,8 +11,8 @@
   </head>
 <body>
 
-    <div class="pure-menu pure-menu-horizontal kiri">
-        <p href="#" class="pure-menu-heading pure-menu-link">ePOWER</p>
+    <div class="pure-menu pure-menu-horizontal kiri2">
+        <p href="#" class="pure-menu-heading pure-menu-link"><h1 class="power">ePOWER</h1></p>
         <ul class="pure-menu-list">
 
             <li class="pure-menu-item">
@@ -38,43 +38,36 @@
 
             <div class="pure-menu">
                 <ul class="pure-menu-list">
-                    <li class="pure-menu-item" ><a href="members.html" class="pure-menu-link">Dashboard</a></li>
-                    <li class="pure-menu-item"><a href="post.html" class="pure-menu-link">Post A Message</a></li>
-                    <li class="pure-menu-item" id="add_employee_link"><a href="addEmployees.html" class="pure-menu-link">Add Employee</a></li>
-                    <li class="pure-menu-item" id="add_role_link" ><a href="addRoles.html" class="pure-menu-link">Add Role</a></li>
+
                     <li class="pure-menu-item" id="add_department_link" ><a href="addDepartments.html" class="pure-menu-link">Add Department</a></li>
-                    <li class="pure-menu-item" id="view_employee_link"><a href="allEmployees.html" class="pure-menu-link">View All Employees</a></li>
-                    <li class="pure-menu-item" id="view_department_link"><a href="allDepartment.html" class="pure-menu-link">View All Department</a></li>
+                    <li class="pure-menu-item" id="add_role_link" ><a href="addRoles.html" class="pure-menu-link">Add Role</a></li>
+                    <li class="pure-menu-item" id="add_employee_link"><a href="addEmployees.html" class="pure-menu-link">Add Employee</a></li>
+                    <hr>
+                    <li class="pure-menu-item" id="view_department_link"><a href="allDepartment.html" class="pure-menu-link">View All Departments</a></li>
                     <li class="pure-menu-item" id="view_role_link"><a href="allRoles.html" class="pure-menu-link">View All Roles</a></li>
+                    <li class="pure-menu-item" id="view_employee_link"><a href="allEmployees.html" class="pure-menu-link">View All Employees</a></li>
+                    <hr>
+                    <li class="pure-menu-item"><a href="post.html" class="pure-menu-link">Post A Message</a></li>
+                    <hr>
                      <li class="pure-menu-item" id="search_link"><a href="searchEmployees.html" class="pure-menu-link">Search</a></li>
                 </ul>
             </div>
         </div>
+
+
     </div>
 
-    <div id="list" class="pure-u-2">
-        <div class="email-item email-item-selected pure-g keke">
-            <div class="pure-u">
-                
-            </div>
-
-            <div class="pure-u-3-4">
-                <h5 class="email-name">...</h5>
-                <h4 class="email-subject">...</h4>
-                <p class="email-desc">
-                  
-                </p>
-            </div>
-        </div>
-    </div>
 
     <div id="main" class="pure-u-1">
-        <div class="email-content keke">
-            <div class="email-content-header pure-g">
+        <div class="email-content keke kiri3">
+            <div class="email-content-header pure-g ">
                 <div class="pure-u-1-2">
-                  <h1>Welcome </h1>
+
+                    <h1>Welcome</h1>
+                    <div><h2><span class="member-name"></span></h2></div>
+
                    <p id="currenttime"></p>
-                   <div><h2><span class="member-name"></span></h2></div>
+                   
                 </div>
 
                 <div class="email-content-controls pure-u-1-2">
@@ -87,6 +80,7 @@
             <div class="body" >
                <h4>Balance</h4><h3 id="balance"> $ </h3>
             </div>
+         
         </div>
     </div>
 

@@ -131,7 +131,7 @@ ul {
   }
   #nav {
     margin-left: -500px; /* "left col (nav + list)" width */
-    width: 150px;
+    width: 185px;
     height: 100%;
   }
 
@@ -197,12 +197,127 @@ ul {
 
 /* box  */
 
-.keke{
-  box-shadow: -20px 2px 25px rgba(136, 136, 136, 0.253);
-  /* border: 10px solid rgba(255, 0, 0, 0.062); */
-  border-radius: 3px;
+
+.power{
+  font-family:"Times New Roman", Times, serif;
+  font-size: 40px;
+  color:rgb(60, 60, 73);
 }
 
-.kiri{
-  padding-left: 500px;
+
+
+
+
+@media (min-width: 60em) {
+
+  /* This will take up the entire height, and be a little thinner */
+  .keke{
+    box-shadow: -20px 2px 25px rgba(136, 136, 136, 0.253);
+  
+    border-radius: 3px;
+  }
+  .kiri{
+    padding-left: 500px;
+  }
+  
+  .kiri2{
+    padding-left: 300px;
+  }
+  
+  .kiri4{
+    padding-left: 20px;
+  }
+  
+  .kiri5{
+    padding-left: 500px;
+  }
+  
+  .kiri3{
+    padding-left:300px
+  }
+
+}
+
+@media (max-device-width: 1366px) {
+
+  
+  .keke{
+    box-shadow: -20px 2px 25px rgba(136, 136, 136, 0.253);
+  
+    border-radius: 3px;
+  }
+  .kiri{
+    padding-left: 500px;
+  }
+  
+  .kiri2{
+    padding-left: 300px;
+  }
+  
+  .kiri4{
+    padding-left: 20px;
+  }
+  
+  .kiri5{
+    padding-left: 500px;
+  }
+  
+  .kiri3{
+    padding-left:0px;
+    padding-right:20px;
+  }
+}
+/* smallest size */
+@media (max-device-width: 480px) {
+
+ 
+  .keke{
+    box-shadow: -20px 2px 25px rgba(136, 136, 136, 0.253);
+  
+    border-radius: 3px;
+  }
+  .kiri{
+    padding-left: 500px;
+  }
+  
+  .kiri2{
+    padding-left: 68px;
+  }
+  
+  .kiri4{
+    padding-left: 20px;
+  }
+  
+  .kiri5{
+    padding-left: 60px;
+  }
+  
+  .kiri3{
+    padding-left:5px;
+    padding: 0px;
+  }
+  #layout{
+    padding: -10px;
+  }
+  #layout, #nav, #list, #main {
+    margin: 0;
+    padding: 0px;
+
+}
+#nav {
+  width: 100%;
+  height: 40px;
+  
+  background: rgb(37, 42, 58);
+  text-align: center;
+}
+.post-menu{
+  width: 100%;
+  height: 40px;
+  background: rgb(37, 42, 58);
+  text-align: center;
+}
+#fieldset{
+  margin-inline-start: -67px;
+}
 }
