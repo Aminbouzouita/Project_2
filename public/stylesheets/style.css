@@ -116,6 +116,7 @@ ul {
 */
 @media (min-width: 40em) {
   /* Move the layout over so we can fit the nav + list in on the left */
+
   #layout {
     padding-left: 500px; /* "left col (nav + list)" width */
     position: relative;
@@ -172,7 +173,7 @@ ul {
 @media (min-width: 60em) {
   /* This will take up the entire height, and be a little thinner */
   #list {
-    margin-left: -290px;
+    margin-left: -236px;
     width: 193px;
     height: 100%;
     border-right: 1px solid #ddd;
@@ -188,7 +189,10 @@ ul {
 
 /* Post CSS */
 .messagePost {
-  background-color: rgb(153, 233, 233);
+  background-color: rgba(155, 155, 155, 0.199);
+ 
+   border: 0px solid rgba(77, 77, 77, 0);
+  border-radius:  10px;
 }
 
 
@@ -209,34 +213,99 @@ ul {
 
 
 @media (min-width: 60em) {
+  .add-department{
+    padding-left: 60px;
+    margin: 40px;
+  }
+  .epower-department{
+    padding-left: 550px;
+  }
 
-  /* This will take up the entire height, and be a little thinner */
+
+  .epower-addemployee{
+       padding-left: 60px;
+    margin: 40px;
+  }
+  .add-employee{
+    padding-left: 35px;
+  }
+  
+  
+  .epower-addroles{
+       padding-left: 60px;
+    margin: 40px;
+  }
+  .add-roles{
+    padding-left: 0px;
+  }
+
+  
+  .epower-alldepartment{
+       padding-left: 60px;
+    margin: 40px;
+  }
+  .all-department{
+    padding-left: 0px;
+  }
+
+  
+  .epower-allemployee{
+       padding-left: 60px;
+    margin: 40px;
+  }
+  .all-employee{
+    padding-left: 0px;
+  }
+
+  
+  .epower-allroles{
+       padding-left: 60px;
+    margin: 40px;
+  }
+  .all-roles{
+    padding-left: 0px;
+  }
+
+  
+  .epower-members{
+       padding-left: 60px;
+    margin: 40px;
+  }
+  .members{
+    padding-left: 10px;
+  }
+
+  
+  .epower-post{
+    padding-left: 500px;    
+  }
+  .post{
+    padding-left: 20px;
+  }
+
+  .epower-search{
+       padding-left: 60px;
+    margin: 40px;
+  }
+  .search{
+    padding-left: 0px;
+  }
+
   .keke{
     box-shadow: -20px 2px 25px rgba(136, 136, 136, 0.253);
   
     border-radius: 3px;
   }
+
+  
   .kiri{
     padding-left: 500px;
   }
   
-  .kiri2{
-    padding-left: 300px;
-  }
-  
-  .kiri4{
-    padding-left: 20px;
-  }
-  
-  .kiri5{
-    padding-left: 500px;
-  }
-  
-  .kiri3{
-    padding-left:300px
-  }
 
 }
+
+
 
 @media (max-device-width: 1366px) {
 
@@ -246,27 +315,10 @@ ul {
   
     border-radius: 3px;
   }
-  .kiri{
-    padding-left: 500px;
-  }
-  
-  .kiri2{
-    padding-left: 300px;
-  }
-  
-  .kiri4{
-    padding-left: 20px;
-  }
-  
-  .kiri5{
-    padding-left: 500px;
-  }
-  
-  .kiri3{
-    padding-left:0px;
-    padding-right:20px;
-  }
+
 }
+
+
 /* smallest size */
 @media (max-device-width: 480px) {
 
@@ -276,26 +328,18 @@ ul {
   
     border-radius: 3px;
   }
+  .epower-addemployee{
+    padding-left: 60px;
+ margin: 40px;
+}
+.add-employee{
+ padding-left: 0px;
+}
   .kiri{
     padding-left: 500px;
   }
   
-  .kiri2{
-    padding-left: 68px;
-  }
-  
-  .kiri4{
-    padding-left: 20px;
-  }
-  
-  .kiri5{
-    padding-left: 60px;
-  }
-  
-  .kiri3{
-    padding-left:5px;
-    padding: 0px;
-  }
+
   #layout{
     padding: -10px;
   }
