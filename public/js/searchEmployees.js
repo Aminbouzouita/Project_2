@@ -1,4 +1,10 @@
 $(document).ready(function () {
+  $.get("/api/user_data").then(function (data) {
+    console.log(data);
+    $(".member-email").text(data.email);
+
+
+    
   $("#search").on("click", function (event) {
     var employee = $("#employee").val().trim();
     var spaceindex = employee.indexOf(" ");
@@ -400,4 +406,5 @@ $(document).ready(function () {
       });
     }
   });
+});
 });
