@@ -182,7 +182,7 @@ ul {
   /* This will now take up it's own column, so don't need position: fixed; */
   #main {
     position: static;
-    margin: 70px;
+    margin: -20px;
     padding: 0;
   }
 }
@@ -190,9 +190,12 @@ ul {
 /* Post CSS */
 .messagePost {
   background-color: rgba(155, 155, 155, 0.199);
- 
-   border: 0px solid rgba(77, 77, 77, 0);
+  border: 0px solid rgba(77, 77, 77, 0);
   border-radius:  10px;
+  padding-left: 20px;
+  /* padding-top:0.50px ; */
+
+
 }
 
 
@@ -219,6 +222,7 @@ ul {
   }
   .epower-department{
     padding-left: 550px;
+    
   }
 
 
@@ -227,7 +231,11 @@ ul {
     margin: 40px;
   }
   .add-employee{
-    padding-left: 35px;
+    padding-left: 10px;
+    /* padding-top: 50px;
+    padding-left: 50px;
+    
+    padding-bottom: 50px; */
   }
   
   
@@ -272,7 +280,10 @@ ul {
     margin: 40px;
   }
   .members{
-    padding-left: 10px;
+    padding-top: 50px;
+    padding-left: 50px;
+    
+    padding-bottom: 50px;
   }
 
   
