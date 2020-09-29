@@ -80,7 +80,7 @@ app.get("/api/searchemployee/id", function (req, res) {
 });
 
 //               Search using is_manager
-app.get("/api/searchemployee/email", function (req, res) {
+app.get("/api/searchemployee/ismanager", function (req, res) {
   db.Employee.findOne({
 where: {
   is_manager: req.query.is_manager
@@ -92,7 +92,7 @@ return results;
 });
 
 //               Search using is_admin
-app.get("/api/searchemployee/email", function (req, res) {
+app.get("/api/searchemployee/isadmin", function (req, res) {
   db.Employee.findOne({
 where: {
   is_admin: req.query.is_admin
@@ -104,7 +104,7 @@ return results;
 });
 
  //               Search using is_active
- app.get("/api/searchemployee/email", function (req, res) {
+ app.get("/api/searchemployee/isactive", function (req, res) {
   db.Employee.findOne({
 where: {
   is_active: req.query.is_active

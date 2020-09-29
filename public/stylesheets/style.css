@@ -182,7 +182,7 @@ ul {
   /* This will now take up it's own column, so don't need position: fixed; */
   #main {
     position: static;
-    margin: 0;
+    margin: 70px;
     padding: 0;
   }
 }
